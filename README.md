@@ -24,6 +24,27 @@ tutorial_00のシェーダーの記述を *.metal に置き換えたサンプル
 Appleのドキュメントのリンク  
 
 ## tutorial_02
-tuorial_01のシェーダーファイルをリソースとして読み込んで使用するサンプルプログラム。  
-・metalファイルをairにビルドする方法  
-・実行時のワーキングディレクトリの設定  
+tuorial_01のシェーダーファイルをリソースとして読み込んで使用するサンプルプログラム。 
+MSL(Metal Sharding Language)の *.metal ファイルをコマンドラインでビルドして *.metallib を作成して、そのファイルを読み込んでシェーダーを使用するサンプルプログラム。  
+
+・metalファイル  
+    basic.metal  
+    basic2.metal  
+
+・metallibのビルド方法  
+  ターミナルなどから以下のコマンドを実行する。  
+  
+  *.metalをコンパイルして中間フォーマットの *.air を作成。  
+    $ xcrun -sdk macosx metal basic.metal -c -o basic.air
+
+  *.metallibをビルドする.  
+    複数の *.air をまとめてビルドすることも可能。  
+    その際、関数名が重複してしまうとビルドエラーになってしまうので注意が必要。  
+    $ xcrun -sdk macosx metallib basic.air basic2.air -o basic.metallib
+
+・ワーキングディレクトリの設定  
+  プロジェクトファイル直下にあるリソースを読み込むためにワーキングディレクトリの設定を行う。  
+  メインメニューの [Product] -> [Scheme] -> [Edit Scheme] の Run の Optionタブの Working Directory の Use custom working directory: にチェックを入れる。  
+  項目に $(SRCROOT) と入力。  
+
+
