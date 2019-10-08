@@ -49,6 +49,9 @@ MSL(Metal Sharding Language)の *.metal ファイルをコマンドラインで�
 
 ## tutorial_03
 テクスチャを適用した矩形の描画のサンプルプログラム。  
-テクスチャの読み込みがmtlppでは用意されていない模様...  
-MetalKitを使用してテクスチャの読み込みを行う。  
+mtlppにはテクスチャを読み込むためのAPIが用意されていない模様...  
+MetalKitのMTKTextureLoaderを使用してと外部ファイルのテクスチャを読み込めるようにする。  
+mtlppに倣ってMTKTextureLoaderのらラッパークラスを以下のファイルで定義。  
+  mtlpp/textureloader.hpp  
+  mtlpp/textureloader.mm  
 
