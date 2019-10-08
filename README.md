@@ -47,4 +47,11 @@ MSL(Metal Sharding Language)の *.metal ファイルをコマンドラインで�
   メインメニューの [Product] -> [Scheme] -> [Edit Scheme] の Run の Optionタブの Working Directory の Use custom working directory: にチェックを入れる。  
   項目に $(SRCROOT) と入力。  
 
+## tutorial_03
+テクスチャを適用した矩形の描画のサンプルプログラム。  
+テクスチャの読み込みがmtlppでは用意されていない模様...  
+MetalKitを使用してテクスチャの読み込みを行う。  
 
+
+tuorial_01のシェーダーファイルをリソースとして読み込んで使用するサンプルプログラム。 適用して
+tuorial_01のシェーダーファイルをリソースとして読み込んで使用するサンプルプログラム。 
