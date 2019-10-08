@@ -1,5 +1,5 @@
 # mtlpp_tutorial
-mtlppというMetalのC++ラッパーを使用してC++で実装するチュートリアル。
+mtlppというMetalのC++ラッパーを使用したチュートリアル。
 
 ## tutorial_00
 三角形を表示するためのサンプルプログラム。
@@ -10,7 +10,7 @@ Xcodeの[Build Phases]の Link Binary With Librariesに以下のフレームワ�
   Metal.framework  
   MetalKit.framework  
 
-・mtlpp.mmのコンパイルオプションの設定  
+・Objective-Cのソースファイルのコンパイルオプションの設定  
 mtlppの ```mtlpp.hpp``` と ```mtlpp.mm``` はそのままプロジェクトに追加する。  
 同様にmtlppのサンプルプログラムにある ```window.hpp``` と ```window.mm``` も持ってきてそのままプロジェクトに追加する。  
 mtlppはARCには非対応となっているためそのままではビルドエラーになってしまう。  
@@ -28,8 +28,8 @@ tuorial_01のシェーダーファイルをリソースとして読み込んで�
 MSL(Metal Sharding Language)の *.metal ファイルをコマンドラインでビルドして *.metallib を作成して、そのファイルを読み込んでシェーダーを使用するサンプルプログラム。  
 
 ・metalファイル  
-    basic.metal  
-    basic2.metal  
+  basic.metal  
+  basic2.metal  
 
 ・metallibのビルド方法  
   ターミナルなどから以下のコマンドを実行する。  
