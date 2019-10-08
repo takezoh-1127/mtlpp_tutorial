@@ -19,7 +19,7 @@ vertex float4 vertFunc(const device packed_float3* vertexArray [[buffer(0)]], un
 // フラグメントシェーダー.
 fragment half4 fragFunc()
 {
-	// 記述ミスがあるとびビルド時にコンパイルエラーになる.
+	// 記述ミスがあるとビルド時にコンパイルエラーになる.
 	//return falf4(1.0, 0.0, 0.0, 1.0);
 	return half4(1.0, 0.0, 0.0, 1.0);
 }
