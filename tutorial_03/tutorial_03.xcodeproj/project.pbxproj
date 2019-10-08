@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		754E4F9B2346AAFA004223E8 /* textureloader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 754E4F992346AAFA004223E8 /* textureloader.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		754E4F9C2346AAFA004223E8 /* mtlpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 754E4F9A2346AAFA004223E8 /* mtlpp.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		754E4FA22346ABE2004223E8 /* window.mm in Sources */ = {isa = PBXBuildFile; fileRef = 754E4F9F2346ABE2004223E8 /* window.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		754E4FA32346ABE2004223E8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 754E4FA02346ABE2004223E8 /* main.cpp */; };
+		754E4FA623475D46004223E8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754E4FA523475D46004223E8 /* Cocoa.framework */; };
+		754E4FA823475D4F004223E8 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754E4FA723475D4F004223E8 /* Metal.framework */; };
+		754E4FAA23475D5A004223E8 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754E4FA923475D5A004223E8 /* MetalKit.framework */; };
+		754E4FAD23476764004223E8 /* basic.metal in Sources */ = {isa = PBXBuildFile; fileRef = 754E4FAC23476764004223E8 /* basic.metal */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		754E4F8A2346A7DC004223E8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		754E4F8C2346A7DC004223E8 /* tutorial_03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tutorial_03; sourceTree = BUILT_PRODUCTS_DIR; };
+		754E4F972346AAFA004223E8 /* textureloader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = textureloader.hpp; path = ../mtlpp/textureloader.hpp; sourceTree = "<group>"; };
+		754E4F982346AAFA004223E8 /* mtlpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = mtlpp.hpp; path = ../mtlpp/mtlpp.hpp; sourceTree = "<group>"; };
+		754E4F992346AAFA004223E8 /* textureloader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = textureloader.mm; path = ../mtlpp/textureloader.mm; sourceTree = "<group>"; };
+		754E4F9A2346AAFA004223E8 /* mtlpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = mtlpp.mm; path = ../mtlpp/mtlpp.mm; sourceTree = "<group>"; };
+		754E4F9F2346ABE2004223E8 /* window.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = window.mm; path = src/window.mm; sourceTree = "<group>"; };
+		754E4FA02346ABE2004223E8 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
+		754E4FA12346ABE2004223E8 /* window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = window.hpp; path = src/window.hpp; sourceTree = "<group>"; };
+		754E4FA523475D46004223E8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		754E4FA723475D4F004223E8 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		754E4FA923475D5A004223E8 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		754E4FAC23476764004223E8 /* basic.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = basic.metal; path = shader/basic.metal; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		754E4F892346A7DC004223E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				754E4FA623475D46004223E8 /* Cocoa.framework in Frameworks */,
+				754E4FA823475D4F004223E8 /* Metal.framework in Frameworks */,
+				754E4FAA23475D5A004223E8 /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		754E4F832346A7DC004223E8 = {
+			isa = PBXGroup;
+			children = (
+				754E4F962346AAD4004223E8 /* mtlpp */,
+				754E4FAB23475EFA004223E8 /* shader */,
+				754E4F9E2346ABC6004223E8 /* src */,
+				754E4F8D2346A7DC004223E8 /* Products */,
+				754E4FA423475D46004223E8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		754E4F8D2346A7DC004223E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				754E4F8C2346A7DC004223E8 /* tutorial_03 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		754E4F962346AAD4004223E8 /* mtlpp */ = {
+			isa = PBXGroup;
+			children = (
+				754E4F982346AAFA004223E8 /* mtlpp.hpp */,
+				754E4F9A2346AAFA004223E8 /* mtlpp.mm */,
+				754E4F972346AAFA004223E8 /* textureloader.hpp */,
+				754E4F992346AAFA004223E8 /* textureloader.mm */,
+			);
+			name = mtlpp;
+			sourceTree = "<group>";
+		};
+		754E4F9E2346ABC6004223E8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				754E4FA02346ABE2004223E8 /* main.cpp */,
+				754E4FA12346ABE2004223E8 /* window.hpp */,
+				754E4F9F2346ABE2004223E8 /* window.mm */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		754E4FA423475D46004223E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				754E4FA923475D5A004223E8 /* MetalKit.framework */,
+				754E4FA723475D4F004223E8 /* Metal.framework */,
+				754E4FA523475D46004223E8 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		754E4FAB23475EFA004223E8 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				754E4FAC23476764004223E8 /* basic.metal */,
+			);
+			name = shader;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		754E4F8B2346A7DC004223E8 /* tutorial_03 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 754E4F932346A7DC004223E8 /* Build configuration list for PBXNativeTarget "tutorial_03" */;
+			buildPhases = (
+				754E4F882346A7DC004223E8 /* Sources */,
+				754E4F892346A7DC004223E8 /* Frameworks */,
+				754E4F8A2346A7DC004223E8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tutorial_03;
+			productName = tutorial_03;
+			productReference = 754E4F8C2346A7DC004223E8 /* tutorial_03 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		754E4F842346A7DC004223E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = TAKEZOH;
+				TargetAttributes = {
+					754E4F8B2346A7DC004223E8 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = 754E4F872346A7DC004223E8 /* Build configuration list for PBXProject "tutorial_03" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 754E4F832346A7DC004223E8;
+			productRefGroup = 754E4F8D2346A7DC004223E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				754E4F8B2346A7DC004223E8 /* tutorial_03 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		754E4F882346A7DC004223E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				754E4F9B2346AAFA004223E8 /* textureloader.mm in Sources */,
+				754E4FA22346ABE2004223E8 /* window.mm in Sources */,
+				754E4FAD23476764004223E8 /* basic.metal in Sources */,
+				754E4FA32346ABE2004223E8 /* main.cpp in Sources */,
+				754E4F9C2346AAFA004223E8 /* mtlpp.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		754E4F912346A7DC004223E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		754E4F922346A7DC004223E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		754E4F942346A7DC004223E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5SN6BUFR3K;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		754E4F952346A7DC004223E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5SN6BUFR3K;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		754E4F872346A7DC004223E8 /* Build configuration list for PBXProject "tutorial_03" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				754E4F912346A7DC004223E8 /* Debug */,
+				754E4F922346A7DC004223E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		754E4F932346A7DC004223E8 /* Build configuration list for PBXNativeTarget "tutorial_03" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				754E4F942346A7DC004223E8 /* Debug */,
+				754E4F952346A7DC004223E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 754E4F842346A7DC004223E8 /* Project object */;
+}
