@@ -1,5 +1,5 @@
 # mtlpp_tutorial
-mtlppというMetalのC++ラッパーのチュートリアル。
+mtlppというMetalのC++ラッパーを使用してC++で実装するチュートリアル。
 
 ## tutorial_00
 三角形を表示するためのサンプルプログラム。
@@ -18,11 +18,12 @@ Xcodeの[Build Phases]の Compile Sources のCompiler Flagsに以下のオプシ
   -fno-objc-arc  
 
 ## tutorial_01
-tutorial_00のシェーダーの記述を *.metal に置き換えたサンプルプログラム。
-*.metalをXcodeのプロジェクトに追加すると一緒にビルドされ NewDefaultLibrary でアクセスできるようになる。
+tutorial_00のシェーダーの記述を *.metal に置き換えたサンプルプログラム。  
+*.metalをXcodeのプロジェクトに追加すると一緒にビルドされ NewDefaultLibrary でアクセスできるようになる。  
 
-Appleのドキュメントのリンク
+Appleのドキュメントのリンク  
 
 ## tutorial_02
-tuorial_01のシェーダーファイルをリソースとして読み込んで使用するサンプルプログラム。
-・実行時のワーキングディレクトリの設定
+tuorial_01のシェーダーファイルをリソースとして読み込んで使用するサンプルプログラム。  
+・metalファイルをairにビルドする方法  
+・実行時のワーキングディレクトリの設定  
