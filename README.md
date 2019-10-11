@@ -24,11 +24,13 @@ Xcodeの[Build Phases]の Compile Sources のCompiler Flagsに以下のオプシ
 tutorial_00のシェーダーの記述を *.metal に置き換えたサンプルプログラム。  
 *.metalをXcodeのプロジェクトに追加すると一緒にビルドされ NewDefaultLibrary でアクセスできるようになる。  
 
-Appleのドキュメントのリンク  
+
 
 ## tutorial_02
 tuorial_01のシェーダーファイルをリソースとして読み込んで使用するサンプルプログラム。 
 MSL(Metal Sharding Language)の *.metal ファイルをコマンドラインでビルドして *.metallib を作成して、そのファイルを読み込んでシェーダーを使用するサンプルプログラム。  
+
+[Building a Library with Metal's Command-Line Tools](https://developer.apple.com/documentation/metal/libraries/building_a_library_with_metal_s_command-line_tools)
 
 ・metalファイル  
   basic.metal  
