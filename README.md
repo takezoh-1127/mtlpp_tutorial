@@ -64,4 +64,5 @@ mtlppに倣ってMTKTextureLoaderのらラッパークラスを以下のファ�
 ## tutorial_04
 tutorial_03をインデックスバッファを使用した描画に変更したサンプルプログラム。
 
-
+## tutorial_05
+立方体の描画のサンプルプログラム。
