@@ -1,6 +1,9 @@
 # mtlpp_tutorial
 mtlppというMetalのC++ラッパーを使用したチュートリアル。
 
+[mtlpp C++ Metal wrapper](https://github.com/naleksiev/mtlpp)
+
+
 ## tutorial_00
 三角形を表示するためのサンプルプログラム。
 
@@ -21,11 +24,13 @@ Xcodeの[Build Phases]の Compile Sources のCompiler Flagsに以下のオプシ
 tutorial_00のシェーダーの記述を *.metal に置き換えたサンプルプログラム。  
 *.metalをXcodeのプロジェクトに追加すると一緒にビルドされ NewDefaultLibrary でアクセスできるようになる。  
 
-Appleのドキュメントのリンク  
+
 
 ## tutorial_02
 tuorial_01のシェーダーファイルをリソースとして読み込んで使用するサンプルプログラム。 
 MSL(Metal Sharding Language)の *.metal ファイルをコマンドラインでビルドして *.metallib を作成して、そのファイルを読み込んでシェーダーを使用するサンプルプログラム。  
+
+[Building a Library with Metal's Command-Line Tools](https://developer.apple.com/documentation/metal/libraries/building_a_library_with_metal_s_command-line_tools)
 
 ・metalファイル  
   basic.metal  
@@ -54,4 +59,9 @@ MetalKitのMTKTextureLoaderを使用してと外部ファイルのテクスチ�
 mtlppに倣ってMTKTextureLoaderのらラッパークラスを以下のファイルで定義。  
   mtlpp/textureloader.hpp  
   mtlpp/textureloader.mm  
+
+
+## tutorial_04
+tutorial_03をインデックスバッファを使用した描画に変更したサンプルプログラム。
+
 
