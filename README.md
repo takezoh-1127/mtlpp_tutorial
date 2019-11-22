@@ -27,7 +27,7 @@ tutorial_00のシェーダーの記述を *.metal に置き換えたサンプル
 
 
 ## tutorial_02
-tuorial_01のシェーダーファイルをリソースとして読み込んで使用するサンプルプログラム。  
+tutorial_01のシェーダーファイルをリソースとして読み込んで使用するサンプルプログラム。  
 MSL(Metal Sharding Language)の *.metal ファイルをコマンドラインでビルドして *.metallib を作成して、そのファイルを読み込んでシェーダーを使用するサンプルプログラム。  
 
 [Building a Library with Metal's Command-Line Tools](https://developer.apple.com/documentation/metal/libraries/building_a_library_with_metal_s_command-line_tools)
