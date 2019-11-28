@@ -31,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		75B08FE9238FD65200CAFE9A /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transform.h; path = ../commonlib/math/Transform.h; sourceTree = "<group>"; };
 		75F74CDB23718359009DF541 /* tutorial_05 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tutorial_05; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F74CE623718394009DF541 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
 		75F74CE9237183C5009DF541 /* textureloader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = textureloader.mm; path = ../mtlpp/textureloader.mm; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 			children = (
 				75F74CFA2371850C009DF541 /* Math.cpp */,
 				75F74CF92371850C009DF541 /* Math.h */,
+				75B08FE9238FD65200CAFE9A /* Transform.h */,
 			);
 			name = math;
 			sourceTree = "<group>";

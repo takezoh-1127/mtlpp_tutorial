@@ -23,13 +23,14 @@
 #include "window.hpp"
 
 #include "Math.h"
+#include "Transform.h"
 
 
 constexpr uint32_t SCREEN_WIDTH = 640;
 constexpr uint32_t SCREEN_HEIGHT = 480;
 
 mtlpp::Device g_device;
-mtlpp::CommandQueue g_commnadQuene;
+mtlpp::CommandQueue g_commandQuene;
 mtlpp::RenderPipelineState g_renderPipelineState;
 mtlpp::DepthStencilState g_depthState;
 
@@ -40,7 +41,7 @@ mtlpp::Buffer g_indexBuffer;
 mtlpp::Texture g_texture;
 
 mtlpp::Buffer g_uniformBuff;
-mtlpp::Buffer g_lambertUniformBuffer;
+mtlpp::Buffer g_lambertUniformBuff;
 
 // 頂点データ.
 typedef struct
@@ -69,73 +70,6 @@ typedef struct
 
 
 std::chrono::system_clock::time_point g_tickCount;
-
-
-
-/**
- */
-class Transform
-{
-public:
-	/**
-	 */
-	void SetPosition(Math::Vector3 pos)
-	{
-		position_ = pos;
-	}
-	
-	/**
-	 */
-	Math::Vector3 GetPosition() const
-	{
-		return position_;
-	}
-	
-	/**
-	 */
-	void SetRotation(Math::Quaternion rot)
-	{
-		rotation_ = rot;
-	}
-	
-	/**
-	 */
-	Math::Quaternion GetRotation() const
-	{
-		return rotation_;
-	}
-	
-	/**
-	 */
-	void SetScale(Math::Vector3 scale)
-	{
-		scale_ = scale;
-	}
-	
-	/**
-	 */
-	Math::Vector3 GetScale() const
-	{
-		return scale_;
-	}
-	
-	/**
-	 */
-	Math::Matrix4 GetWorldMatrix() const
-	{
-		Math::Matrix4 mat;
-		
-		mat = Math::Matrix4::CreateScale(scale_);
-		mat *= Math::Matrix4::CreateFromQuaternion(rotation_);
-		mat *= Math::Matrix4::CreateTranslation(position_);
-		
-		return mat;
-	}
-private:
-	Math::Vector3 position_ = { Math::Vector3::Zero() };
-	Math::Quaternion rotation_ = { Math::Quaternion::Identity() };
-	Math::Vector3 scale_ = { Math::Vector3::One() };
-};
 
 
 Transform g_transform;
@@ -181,7 +115,7 @@ void doFrame(const Window& window)
 	
 	//
 	{
-		LambertUniformBuffer* buffer = static_cast<LambertUniformBuffer*>(g_lambertUniformBuffer.GetContents());
+		LambertUniformBuffer* buffer = static_cast<LambertUniformBuffer*>(g_lambertUniformBuff.GetContents());
 		
 		buffer->ambientColor = Math::Vector3(0.4f, 0.4f, 0.4f);
 		
@@ -211,12 +145,14 @@ void doFrame(const Window& window)
 			
 			g_transform.SetRotation(rot);
 			
+			//g_transform.SetPosition(Math::Vector3(2.0f,0.0f,0.0f));
+			
 			buffer->worldTransform = g_transform.GetWorldMatrix();
 		}
 	}
 	
 	//
-	mtlpp::CommandBuffer commandBuffer = g_commnadQuene.CommandBuffer();
+	mtlpp::CommandBuffer commandBuffer = g_commandQuene.CommandBuffer();
 	assert(commandBuffer);
 	
 	mtlpp::RenderPassDescriptor desc = window.GetRenderPassDescriptor();
@@ -239,7 +175,7 @@ void doFrame(const Window& window)
 		
 		// ユニフォームバッファをセット.
 		encoder.SetVertexBuffer(g_uniformBuff, 0, 3);
-		encoder.SetFragmentBuffer(g_lambertUniformBuffer, 0, 3);
+		encoder.SetFragmentBuffer(g_lambertUniformBuff, 0, 3);
 		
 		// 頂点バッファをセット.
 		encoder.SetVertexBuffer(g_vertexBuffer, 0, 0);
@@ -264,22 +200,13 @@ void doFrame(const Window& window)
 //int main(int argc, const char * argv[])
 int main()
 {
-	// insert code here...
-	//std::cout << "Hello, World!\n";
-	
-	{
-		//Math::Quaternion rot = g_transform.GetRotation();
-		
-		
-	}
-	
 	// デバイスの生成.
 	g_device = mtlpp::Device::CreateSystemDefaultDevice();
 	assert(g_device);
 	
 	// コマンドキューの生成.
-	g_commnadQuene = g_device.NewCommandQueue();
-	assert(g_commnadQuene);
+	g_commandQuene = g_device.NewCommandQueue();
+	assert(g_commandQuene);
 	
 	// シェーダーの初期化.
 	mtlpp::Library library = g_device.NewDefaultLibrary();
@@ -500,8 +427,8 @@ int main()
 	}
 	
 	{
-		g_lambertUniformBuffer = g_device.NewBuffer(sizeof(LambertUniformBuffer), mtlpp::ResourceOptions::StorageModeShared);
-		assert(g_lambertUniformBuffer);
+		g_lambertUniformBuff = g_device.NewBuffer(sizeof(LambertUniformBuffer), mtlpp::ResourceOptions::StorageModeShared);
+		assert(g_lambertUniformBuff);
 	}
 	
 	Window window(g_device, &doFrame, SCREEN_WIDTH, SCREEN_HEIGHT);
