@@ -30,7 +30,7 @@ constexpr uint32_t SCREEN_WIDTH = 640;
 constexpr uint32_t SCREEN_HEIGHT = 480;
 
 mtlpp::Device g_device;
-mtlpp::CommandQueue g_commandQuene;
+mtlpp::CommandQueue g_commandQueue;
 mtlpp::RenderPipelineState g_renderPipelineState;
 mtlpp::DepthStencilState g_depthState;
 
@@ -152,7 +152,7 @@ void doFrame(const Window& window)
 	}
 	
 	//
-	mtlpp::CommandBuffer commandBuffer = g_commandQuene.CommandBuffer();
+	mtlpp::CommandBuffer commandBuffer = g_commandQueue.CommandBuffer();
 	assert(commandBuffer);
 	
 	mtlpp::RenderPassDescriptor desc = window.GetRenderPassDescriptor();
@@ -205,8 +205,8 @@ int main()
 	assert(g_device);
 	
 	// コマンドキューの生成.
-	g_commandQuene = g_device.NewCommandQueue();
-	assert(g_commandQuene);
+	g_commandQueue = g_device.NewCommandQueue();
+	assert(g_commandQueue);
 	
 	// シェーダーの初期化.
 	mtlpp::Library library = g_device.NewDefaultLibrary();
