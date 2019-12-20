@@ -4,6 +4,9 @@ mtlppというMetalのC++ラッパーを使用したチュートリアル。
 [mtlpp C++ Metal wrapper](https://github.com/naleksiev/mtlpp)
 
 
+macOS : 10.15.1
+Xcode : 11.3
+
 ## tutorial_00
 三角形を表示するためのサンプルプログラム。
 
