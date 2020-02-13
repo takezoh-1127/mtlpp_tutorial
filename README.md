@@ -63,6 +63,7 @@ mtlppに倣ってMTKTextureLoaderのらラッパークラスを以下のファ�
   mtlpp/textureloader.hpp  
   mtlpp/textureloader.mm  
 
+<img width="640" alt="tutorial_03" src="https://user-images.githubusercontent.com/27395939/74458595-4ae4eb00-4ecd-11ea-86fc-aef535919f5d.png">
 
 ## tutorial_04
 tutorial_03をインデックスバッファを使用した描画に変更したサンプルプログラム。
