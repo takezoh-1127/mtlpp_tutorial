@@ -7,6 +7,8 @@ mtlppというMetalのC++ラッパーを使用したチュートリアル。
 macOS : 10.15.1  
 Xcode : 11.3  
 
+左手系
+
 ## tutorial_00
 三角形を表示するためのサンプルプログラム。
 
@@ -88,7 +90,9 @@ tutorial_06のPhongシェーディングをローカルスペースの計算に�
 <img width="640" alt="tutorial_08" src="https://user-images.githubusercontent.com/27395939/74458905-bcbd3480-4ecd-11ea-959e-be93afa47655.png">
 
 ## tutorial_09
-objファイルを読み込んで表示するサンプルプログラム。
+objファイルを読み込んで表示するサンプルプログラム。  
+データはMagicaVoxelのサンプルデータをobjファイルでエクスポート。  
+mtlファイルは現状は使用していない。  
 
 <img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/74457771-13297380-4ecc-11ea-9e5f-9d1e0f77c4a5.png">
 
@@ -97,8 +101,8 @@ objファイルを読み込んで表示するサンプルプログラム。
 今後作成するチュートリアル、サンプルの予定。  
 ・ノーマルマップ  
 ・objファイルの読み込み、表示  
-・glTFファイルの読み込み、表示
-・FBXファイルの読み込み、表示
+・glTFファイルの読み込み、表示  
+・FBXファイルの読み込み、表示  
 ・PBR  
 ・デファードレンダリング  
 ・ポストエフェクト  
