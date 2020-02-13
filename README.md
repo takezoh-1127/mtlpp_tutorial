@@ -85,6 +85,8 @@ tutorial_05のlambertをローカルスペースの計算に書き換え。
 ## tutorial_08
 tutorial_06のPhongシェーディングをローカルスペースの計算に書き換え。
 
+<img width="640" alt="tutorial_08" src="https://user-images.githubusercontent.com/27395939/74458905-bcbd3480-4ecd-11ea-959e-be93afa47655.png">
+
 ## tutorial_09
 objファイルを読み込んで表示するサンプルプログラム。
 
@@ -95,6 +97,8 @@ objファイルを読み込んで表示するサンプルプログラム。
 今後作成するチュートリアル、サンプルの予定。  
 ・ノーマルマップ  
 ・objファイルの読み込み、表示  
+・glTFファイルの読み込み、表示
+・FBXファイルの読み込み、表示
 ・PBR  
 ・デファードレンダリング  
 ・ポストエフェクト  
