@@ -87,6 +87,8 @@ tutorial_06のPhongシェーディングをローカルスペースの計算に�
 ## tutorial_09
 objファイルを読み込んで表示するサンプルプログラム。
 
+<img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/74457771-13297380-4ecc-11ea-9e5f-9d1e0f77c4a5.png">
+
 
 ## 予定
 今後作成するチュートリアル、サンプルの予定。  
