@@ -26,6 +26,7 @@
 #include "Math.h"
 #include "Transform.h"
 
+#include "Timer.h"
 
 constexpr uint32_t SCREEN_WIDTH = 640;
 constexpr uint32_t SCREEN_HEIGHT = 480;
@@ -95,7 +96,7 @@ std::vector<std::string> SplitString(const std::string &str, char sep)
 
 
 
-std::chrono::system_clock::time_point g_tickCount;
+Timer g_frameCount;
 
 Transform g_transform;
 
@@ -104,12 +105,12 @@ Transform g_transform;
 */
 void doFrame(const Window& window)
 {
-	// この辺りはTimerなどで隠蔽、まとめる予定.
-	auto now = std::chrono::system_clock::now();
-	//float deltaTime = ((std::chrono::duration_cast<std::chrono::microseconds>(now - g_tickCount).count()) / (1000.0 * 1000.0));
-	float deltaTime = ((std::chrono::duration_cast<std::chrono::milliseconds>(now - g_tickCount).count()) / (1000.0f));
-	g_tickCount = std::chrono::system_clock::now();
-		
+	g_frameCount = Timer::GetCurrentTime() - g_frameCount;
+	
+	float deltaTime = g_frameCount.GetSecond();
+	
+	g_frameCount = Timer::GetCurrentTime();
+	
 	constexpr float MAX_DELTA_TIME = (1.0f / 60.0f) * 5.0f;
 		
 	if(deltaTime > MAX_DELTA_TIME)
@@ -143,12 +144,12 @@ void doFrame(const Window& window)
 		
 	// モデルのマトリクスの更新.
 	{
-		float angle = -1.0f * deltaTime;
+		float angle = 1.0f * deltaTime;
 		
 		//g_position.x = 2.0f;
 		
-		//Math::Quaternion incY(Math::Vector3::UnitY(), angle * 0.5f);
-		Math::Quaternion incY(Math::Vector3::UnitY(), Math::ToRadians(180.0f));
+		Math::Quaternion incY(Math::Vector3::UnitY(), angle * 0.5f);
+		//Math::Quaternion incY(Math::Vector3::UnitY(), Math::ToRadians(180.0f));
 		//Math::Quaternion incX(Math::Vector3::UnitX(), angle * 0.2f);
 		//Math::Quaternion incX(Math::Vector3::UnitX(), Math::ToRadians(45.0f*0.5f));
 			
@@ -157,7 +158,7 @@ void doFrame(const Window& window)
 		rot = Math::Quaternion::Concatenate(rot, incY);
 		//rot = Math::Quaternion::Concatenate(rot, incX);
 		
-		rot = incY;
+		//rot = incY;
 		//rot = incX;
 			
 		g_transform.SetRotation(rot);
@@ -627,8 +628,11 @@ int main()
 		assert(g_uniformBuff);
 	}
 	
+	
 	//
 	Window window(g_device, &doFrame, SCREEN_WIDTH, SCREEN_HEIGHT);
+	
+	g_frameCount = Timer::GetCurrentTime();
 	
 	Window::Run();
 	

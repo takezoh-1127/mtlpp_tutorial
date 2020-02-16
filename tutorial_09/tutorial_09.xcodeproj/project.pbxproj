@@ -31,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7500D9A923F83CCF003D6DAF /* Timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = ../commonlib/core/Timer.h; sourceTree = "<group>"; };
 		7538F50A23F1B65D006999B0 /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Math.h; path = ../commonlib/math/Math.h; sourceTree = "<group>"; };
 		7538F50B23F1B65D006999B0 /* Math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Math.cpp; path = ../commonlib/math/Math.cpp; sourceTree = "<group>"; };
 		7538F50D23F1BB22006999B0 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transform.h; path = ../commonlib/math/Transform.h; sourceTree = "<group>"; };
@@ -62,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7500D9A823F83CA5003D6DAF /* core */ = {
+			isa = PBXGroup;
+			children = (
+				7500D9A923F83CCF003D6DAF /* Timer.h */,
+			);
+			name = core;
+			sourceTree = "<group>";
+		};
 		7538F50923F1B643006999B0 /* math */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +143,7 @@
 		7565C8A223D2292A006DCC10 /* commonlib */ = {
 			isa = PBXGroup;
 			children = (
+				7500D9A823F83CA5003D6DAF /* core */,
 				7538F50923F1B643006999B0 /* math */,
 			);
 			name = commonlib;
