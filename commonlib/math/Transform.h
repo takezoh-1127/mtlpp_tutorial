@@ -1,6 +1,5 @@
 //
 //  Transform.h
-//  tutorial_05
 //
 //  Created by TAKEZOH on 2019/11/28.
 //  Copyright © 2019 TAKEZOH. All rights reserved.
@@ -69,6 +68,7 @@ public:
 		
 		return mat;
 	}
+
 private:
 	Math::Vector3 position_ = { Math::Vector3::Zero() };
 	Math::Quaternion rotation_ = { Math::Quaternion::Identity() };
