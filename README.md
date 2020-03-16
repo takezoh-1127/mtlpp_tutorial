@@ -97,6 +97,15 @@ mtlファイルは現状は使用していない。
 <img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/74457771-13297380-4ecc-11ea-9e5f-9d1e0f77c4a5.png">
 
 
+## sample/RenderTexture
+テクスチャレンダリングのサンプルプログラム。  
+
+256 x 256 のテクスチャレンダリング用のフレームバッファを用意して、そのバッファに対してモデル描画。  
+そのテクスチャを使用して立方体を描画。  
+
+<img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/76672616-713b9a80-65e1-11ea-8eb0-a3c88c6732e0.png">
+
+
 ## 予定
 今後作成するチュートリアル、サンプルの予定。  
 ・ノーマルマップ  
