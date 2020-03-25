@@ -105,6 +105,11 @@ mtlファイルは現状は使用していない。
 
 <img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/76672616-713b9a80-65e1-11ea-8eb0-a3c88c6732e0.png">
 
+## sample/MosaicFilter
+モザイクフィルターのサンプルプログラム。  
+
+<img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/77568530-191f6500-6f0c-11ea-8ae6-262dc75d8415.png">
+
 
 ## 予定
 今後作成するチュートリアル、サンプルの予定。  
