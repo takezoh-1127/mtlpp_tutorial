@@ -816,17 +816,6 @@ int main(int argc, const char * argv[])
 	
 	// ユニフォームバッファの生成.
 	{
-		mtlpp::DepthStencilDescriptor desc;
-		
-		desc.SetDepthCompareFunction(mtlpp::CompareFunction::Less);
-		desc.SetDepthWriteEnabled(true);
-		
-		g_depthState = g_device.NewDepthStencilState(desc);
-		assert(g_depthState);
-	}
-	
-	// ユニフォームバッファの生成.
-	{
 		g_uniformBuff = g_device.NewBuffer(sizeof(UniformBuffer), mtlpp::ResourceOptions::StorageModeShared);
 		assert(g_uniformBuff);
 	}
