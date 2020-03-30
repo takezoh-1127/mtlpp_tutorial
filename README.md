@@ -122,6 +122,11 @@ mtlファイルは現状は使用していない。
 <img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/77665116-8b528100-6fc2-11ea-83ad-02f9d6a4b805.png">
 
 
+## sample/GaussianFilter
+ガウスフィルターのサンプルプログラム。  
+
+<img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/77927371-1e9cf680-72e2-11ea-9769-95e08c658936.png">
+
 
 
 ## 予定
