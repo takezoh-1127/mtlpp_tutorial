@@ -97,35 +97,42 @@ mtlファイルは現状は使用していない。
 <img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/74457771-13297380-4ecc-11ea-9e5f-9d1e0f77c4a5.png">
 
 
+
+## sample/NormalMapping
+ノーマルマップのサンプルプログラム。  
+
+<img width="640" alt="NormalMapping" src="https://user-images.githubusercontent.com/27395939/79992028-eb6b1300-84ed-11ea-8066-a6d0cdd3ca25.png">
+
+
 ## sample/RenderTexture
 テクスチャレンダリングのサンプルプログラム。  
 
 256 x 256 のテクスチャレンダリング用のフレームバッファを用意して、そのバッファに対してモデル描画。  
 そのテクスチャを使用して立方体を描画。  
 
-<img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/76672616-713b9a80-65e1-11ea-8eb0-a3c88c6732e0.png">
+<img width="640" alt="RenderTexture" src="https://user-images.githubusercontent.com/27395939/76672616-713b9a80-65e1-11ea-8eb0-a3c88c6732e0.png">
 
 ## sample/MosaicFilter
 モザイクフィルターのサンプルプログラム。  
 
-<img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/77568530-191f6500-6f0c-11ea-8ae6-262dc75d8415.png">
+<img width="640" alt="MosaicFilter" src="https://user-images.githubusercontent.com/27395939/77568530-191f6500-6f0c-11ea-8ae6-262dc75d8415.png">
 
 ## sample/MonoFilter
 モノクロフィルターのサンプルプログラム。  
 
-<img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/77665078-7bd33800-6fc2-11ea-81f9-0dfdb1308055.png">
+<img width="640" alt="MonoFilter" src="https://user-images.githubusercontent.com/27395939/77665078-7bd33800-6fc2-11ea-81f9-0dfdb1308055.png">
 
 
 ## sample/SepiaFilter
 セピア調フィルターのサンプルプログラム。
 
-<img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/77665116-8b528100-6fc2-11ea-83ad-02f9d6a4b805.png">
+<img width="640" alt="SepiaFilter" src="https://user-images.githubusercontent.com/27395939/77665116-8b528100-6fc2-11ea-83ad-02f9d6a4b805.png">
 
 
 ## sample/GaussianFilter
 ガウスフィルターのサンプルプログラム。  
 
-<img width="640" alt="tutorial_09" src="https://user-images.githubusercontent.com/27395939/77927371-1e9cf680-72e2-11ea-9769-95e08c658936.png">
+<img width="640" alt="GaussianFilter" src="https://user-images.githubusercontent.com/27395939/77927371-1e9cf680-72e2-11ea-9769-95e08c658936.png">
 
 
 
