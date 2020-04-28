@@ -108,6 +108,7 @@ public:
 	
 	const Math::Matrix4& GetView() const { return view_; }
 	const Math::Matrix4& GetInvView() const { return invView_; }
+	const Math::Vector3 GetPostion() const { return invView_.GetTranslation(); }
 
 private:
 	uint32_t screenW_ = { 0 };

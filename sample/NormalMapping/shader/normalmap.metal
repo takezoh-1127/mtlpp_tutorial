@@ -40,21 +40,13 @@ typedef struct
 {
 	float4 position [[position]];
 	float2 texcoord;
-	float3 cameraPos;
-	float3 worldPos;
-	float3 fragPos;
-	float3 tangentLightPos;
-	float3 tangentViewPos;
-	float3 tangentFragPos;
 	float4 color;
+	float4 ambient;
 	float3 L;
 	float3 N;
 	float3 E;
 	float3 specularColor;
 	float specularPower;
-	float3 normal;
-	float3 tangent;
-	float3 binormal;
 }VertexOut;
 
 
@@ -63,52 +55,39 @@ vertex VertexOut normalMappingVS(VertexIn in [[stage_in]], constant UniformVS& i
 {
 	VertexOut out;
 	
-	// ワールド座標を求める.
 	float4 position = float4(in.position, 1.0);
 	
+	// スクリーン座標を求める.
 	out.position = inUniform.WVP * position;
 	
 	out.texcoord = float2(in.texcoord);
 	
-	//---
-	//float3x3 normalMatrix = transpose(float3x3(inUniform.invLW[0].xyz,inUniform.invLW[1].xyz,inUniform.invLW[2].xyz));
-	float3x3 normalMatrix = float3x3(inUniform.LW[0].xyz,inUniform.LW[1].xyz,inUniform.LW[2].xyz);
-	//float3x3 normalMatrix = transpose(float3x3(inUniform.LW[0].xyz,inUniform.LW[1].xyz,inUniform.LW[2].xyz));
-	
-	out.normal = normalize(normalMatrix * in.normal);
-	out.tangent = normalize(normalMatrix * in.tangent);
-	out.binormal = normalize(normalMatrix * in.binormal);
-	
-	//
-	//float3 N = normalMatrix * in.normal;
 	float3 N = in.normal;
+	float3 T = in.tangent;
+	float3 B = in.binormal;
+	//float3 B = cross(N, T);
+	
+	out.color = float4(inUniform.diffuseColor, 1.0);
+	out.ambient = float4(inUniform.ambientColor, 1.0);
+	
 	// ローカルスペースに変換された光源の向き.
-	// ワールドスペース.
-	float3 L = normalize(-inUniform.lightDir);
+	float3 L = -normalize(inUniform.lightDir);
 	//float3 L = normalize(inUniform.lightDir);
 	
-	// saturate() 0.0 - 1.0 にクランプ.
-	//float d = saturate(dot(N, L));
+	out.L.x = dot(L, T);
+	out.L.y = dot(L, B);
+	out.L.z = dot(L, N);
 	
-	float3 ambient = inUniform.ambientColor;
-	//float3 diffuse = inUniform.diffuseColor * d;
-	float3 diffuse = inUniform.diffuseColor;
-		
-	float3 color = diffuse + ambient;
-	color = clamp(color, 0.0, 1.0);
+	//out.N = N;
 	
-	out.color = float4(color,1.0);
+	float3 E = inUniform.cameraPos - in.position;
 	
-	out.L = L;
-	out.N = N;
-	out.E = normalize(inUniform.cameraPos - in.position);
-	//out.E = normalize(inUniform.cameraPos - (float3)(inUniform.LW * position));
+	out.E.x = dot(E, T);
+	out.E.y = dot(E, B);
+	out.E.z = dot(E, N);
 	
 	out.specularColor = inUniform.specularColor;
 	out.specularPower = inUniform.specularPower;
-	
-	out.cameraPos = inUniform.cameraPos;
-	out.worldPos = (float3)(inUniform.LW * position);
 	
 	return out;
 }
@@ -119,8 +98,12 @@ fragment float4 normalMappingFS(VertexOut in[[stage_in]], texture2d<float> tex [
 	
 	constexpr sampler quadSampler(mip_filter::linear, mag_filter::linear, min_filter::linear);
 	
-	float3 normal = normalMap.sample(quadSampler, in.texcoord).xyz;
+	//float3 normal = normalMap.sample(quadSampler, in.texcoord).xyz;
 	
+	//return float4(normal, 1.0);
+	
+	// 0.0〜1.0 を -1.0〜1.0 に変換.
+	float3 normal = 2.0 * normalMap.sample(quadSampler, in.texcoord).xyz - 1.0;
 	//normal.xy = normal.xy * 2.0 - 1.0;
 	//normal = normal * 2.0 - 1.0;
 	
@@ -128,22 +111,22 @@ fragment float4 normalMappingFS(VertexOut in[[stage_in]], texture2d<float> tex [
 	
 	//return float4(normal, 1.0);
 	
-	float3x3 tangentMatrix = float3x3(in.tangent, in.binormal, in.normal);
+	float3 L = normalize(in.L);
+	float3 E = normalize(in.E);
+	float3 N = normal;
 	
-	float3 L = in.L;
-	//float3 E = normalize(in.E);
-	//float3 E = in.E;
-	//float3 N = in.N;
-	float3 E = in.cameraPos - in.worldPos;
-	float3 N = (float3)(tangentMatrix * normal);
-	//float3 N = in.N;
+	//return float4(N, 1.0);
+	
+	// saturate() 0.0 - 1.0 にクランプ.
+	float d = saturate(dot(N, L));
 	
 	float3 H = normalize(L + E);	// ハーフベクトル.
 	
-	float reflection = max(0.0,dot(N,H));
+	float reflection = max(0.0, dot(N, H));
 	float specular = pow(reflection, in.specularPower);
 	float4 specularColor = float4(in.specularColor, 1.0) * specular;
-	float4 out = (tex.sample(quadSampler, in.texcoord) * in.color) + specularColor;
+	
+	float4 out = (tex.sample(quadSampler, in.texcoord) * ((in.color * d) + in.ambient)) + specularColor;
 	//float4 out = (normalMap.sample(quadSampler, in.texcoord) * in.color) + pow(max(0.0,dot(N,H)), in.specularPower);
 	
 	return out;

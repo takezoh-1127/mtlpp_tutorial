@@ -6,6 +6,34 @@
 //  Copyright © 2020 TAKEZOH. All rights reserved.
 //
 
+//
+//	ノーマルマップのサンプルプログラム.
+//
+//	頂点座標系での計算.
+//	頂点座標系は頂点ごとに計算した接ベクトルを規定ベクトルとした座標系.
+//
+//	uvは左上が(0, 0)、右下が(1, 1)
+//	Z軸が法線ベクトル(N:normal)
+//	X軸が接ベクトル(T:tangent)
+//	Y軸が従法線ベクトル(B:binormal)
+//
+//	接ベクトル空間、タンジェント空間とも呼ばれる.
+//
+//	頂点座標系のメリットは「法線マップがそのまま法線の向きになる」.
+//
+//	ローカル座標系から頂点座標系への変換
+//	接ベクトルと従法線ベクトルを計算することができれば、それぞれの基底ベクトルから変換行列を計算することができる.
+//	接ベクトルTはテクスチャ座標の横方向uが変化したときの位置座標の変化.
+//	従法線ベクトルBはテクスチャ座標の縦方向vが変化したときの位置座標の変化.
+//
+//
+//	実際の計算手順
+//		頂点空間座標系の基底ベクトルを計算
+//		頂点空間の基底ベクトルを使って、視線ベクトルや光源ベクトルをローカル座標系から頂点座標系に変換.
+//
+
+
+
 //#include <iostream>
 #include <string>
 
@@ -140,18 +168,19 @@ void update(float deltaT)
 		buffer->WVP = g_transform.GetWorldMatrix() * view * projection;
 		//buffer->WVP = view * projection * g_transform.GetWorldMatrix();
 		
-#if 1
+#if 0
 		// ワールドスペース.
 		{				
 			//buffer->cameraPos = view.GetTranslation();
 			
-			auto invView = g_camera.GetInvView();
-			auto pos = invView.GetTranslation();
+			//auto invView = g_camera.GetInvView();
+			//auto pos = invView.GetTranslation();
 			
 			//printf(">>> camera pos:[%f][%f][%f]\n",pos.GetX(),pos.GetY(),pos.GetZ());
 			
-			buffer->cameraPos = pos;
-			//buffer->cameraPos = Math::Vector3(0.0f, 0.0f, -5.0f);
+			//buffer->cameraPos = pos;
+			//buffer->cameraPos = g_camera.GetPostion();
+			buffer->cameraPos = Math::Vector3(0.0f, 0.0f, -5.0f);
 		}
 #else
 		// 視点をローカル座標系に変換.
@@ -167,8 +196,9 @@ void update(float deltaT)
 		// ライトの向きをローカル座標系に変換.
 		{
 			auto lightDir = Math::Vector3::Normalize(Math::Vector3(0.7f, -0.7f, 0.7f));
+			//auto lightDir = Math::Vector3::Normalize(Math::Vector3(0.0f, -0.7f, 0.0f));
 			
-#if 1
+#if 0
 			// ワールドスペース.
 			buffer->lightDir = Math::Vector3::Normalize(lightDir);
 #else
@@ -181,7 +211,7 @@ void update(float deltaT)
 				
 		// 光源色を頂点シェーダーに渡す.
 		{
-			buffer->ambientColor = Math::Vector3(0.2f, 0.2f, 0.2f);
+			buffer->ambientColor = Math::Vector3(0.4f, 0.4f, 0.4f);
 			//buffer->ambientColor = Math::Vector3(0.0f, 0.0f, 0.0f);
 				
 			buffer->diffuseColor = Math::Vector3(1.0f, 1.0f, 1.0f);
@@ -552,7 +582,7 @@ int main()
 			}
 		}
 		
-#if 0
+#if 1
 		{
 			for(int32_t i = 0; i < sizeof(vertex) / sizeof(vertex[0]); i++)
 			{
