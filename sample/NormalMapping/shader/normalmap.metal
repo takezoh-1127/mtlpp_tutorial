@@ -67,6 +67,14 @@ vertex VertexOut normalMappingVS(VertexIn in [[stage_in]], constant UniformVS& i
 	float3 B = in.binormal;
 	//float3 B = cross(N, T);
 	
+	//float3x3 TBN = float3x3(T, B, N);
+	// 行優先？.
+	//float3x3 TBN = transpose(float3x3(T, B, N));
+	
+	//T = TBN[0];
+	//B = TBN[1];
+	//N = TBN[2];
+	
 	out.color = float4(inUniform.diffuseColor, 1.0);
 	out.ambient = float4(inUniform.ambientColor, 1.0);
 	
@@ -74,6 +82,7 @@ vertex VertexOut normalMappingVS(VertexIn in [[stage_in]], constant UniformVS& i
 	float3 L = -normalize(inUniform.lightDir);
 	//float3 L = normalize(inUniform.lightDir);
 	
+	//out.L = TBN * L;
 	out.L.x = dot(L, T);
 	out.L.y = dot(L, B);
 	out.L.z = dot(L, N);
@@ -82,9 +91,16 @@ vertex VertexOut normalMappingVS(VertexIn in [[stage_in]], constant UniformVS& i
 	
 	float3 E = inUniform.cameraPos - in.position;
 	
+	//E = normalize(E);
+	
+	//out.E = TBN * E;
 	out.E.x = dot(E, T);
 	out.E.y = dot(E, B);
 	out.E.z = dot(E, N);
+	
+	//out.N = N;
+	//out.L = L;
+	//out.E = E;
 	
 	out.specularColor = inUniform.specularColor;
 	out.specularPower = inUniform.specularPower;
@@ -102,29 +118,37 @@ fragment float4 normalMappingFS(VertexOut in[[stage_in]], texture2d<float> tex [
 	
 	//return float4(normal, 1.0);
 	
+	float3 normalMapColor = normalMap.sample(quadSampler, in.texcoord).rgb;
 	// 0.0〜1.0 を -1.0〜1.0 に変換.
-	float3 normal = 2.0 * normalMap.sample(quadSampler, in.texcoord).xyz - 1.0;
-	//normal.xy = normal.xy * 2.0 - 1.0;
+	float3 normal = (2.0 * normalize(normalMapColor)) - 1.0;
+	//float3 normal = normalMap.sample(quadSampler, in.texcoord).rgb;
 	//normal = normal * 2.0 - 1.0;
 	
-	normal = normalize(normal);
+	//normal = normalize(normal);
 	
 	//return float4(normal, 1.0);
 	
 	float3 L = normalize(in.L);
 	float3 E = normalize(in.E);
-	float3 N = normal;
+	float3 N = normalize(normal);
+	//float3 N = in.N;
 	
+	//return float4(L, 1.0);
 	//return float4(N, 1.0);
 	
 	// saturate() 0.0 - 1.0 にクランプ.
 	float d = saturate(dot(N, L));
 	
+	//return float4(0.0, 0.0, d, 1.0);
+	
 	float3 H = normalize(L + E);	// ハーフベクトル.
 	
-	float reflection = max(0.0, dot(N, H));
+	//float reflection = max(0.0, dot(N, H));
+	float reflection = saturate(dot(N, H));
 	float specular = pow(reflection, in.specularPower);
 	float4 specularColor = float4(in.specularColor, 1.0) * specular;
+	
+	//specularColor = float4(0.0, 0.0, 0.0, 1.0);
 	
 	float4 out = (tex.sample(quadSampler, in.texcoord) * ((in.color * d) + in.ambient)) + specularColor;
 	//float4 out = (normalMap.sample(quadSampler, in.texcoord) * in.color) + pow(max(0.0,dot(N,H)), in.specularPower);
