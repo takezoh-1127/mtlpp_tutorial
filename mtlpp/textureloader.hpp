@@ -19,6 +19,13 @@ namespace mtlpp
 /** MTKTextureLoaderのラッパー.
 	mtlppには用意されていないようなので自前で用意.
 	namespaceは統一するためにmtlppにしておく.
+	
+	https://developer.apple.com/documentation/metalkit/mtktextureloader?language=objc
+	
+	PNG、JPEG、TIFFなどのフォーマットの読み込み.
+	KTX、PVRファイル、アセットカタログ、Core Graphics画像、その他のソースから画像データを読み込むことも可能.
+	画像データから出力テクスチャ形式とピクセル形式を推測.
+	オプションを指定して、画像の読み込みとテクスチャの作成プロセスを変更できる.
 */
 class TextureLoader : public ns::Object
 {

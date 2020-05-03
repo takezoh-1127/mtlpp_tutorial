@@ -28,10 +28,12 @@ Texture TextureLoader::NewTextureWithPath(const ns::String& filePath, ns::Error*
 {
 	Validate();
 	
+	// 一部のフォーマットで読み込んだテクスチャのRGBがおかしくなるケースがあるのでSRGBをNOにしてみる.
 	NSDictionary *textureLoaderOptions =
     @{
       MTKTextureLoaderOptionTextureUsage       : @(MTLTextureUsageShaderRead),
-      MTKTextureLoaderOptionTextureStorageMode : @(MTLStorageModePrivate)
+      MTKTextureLoaderOptionTextureStorageMode : @(MTLStorageModePrivate),
+      MTKTextureLoaderOptionSRGB               : @(NO)
       };
 
 	NSString* path = (__bridge NSString*)filePath.GetPtr();
