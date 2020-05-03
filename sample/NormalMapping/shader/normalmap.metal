@@ -69,7 +69,7 @@ vertex VertexOut normalMappingVS(VertexIn in [[stage_in]], constant UniformVS& i
 	
 	//float3x3 TBN = float3x3(T, B, N);
 	// 行優先？.
-	//float3x3 TBN = transpose(float3x3(T, B, N));
+	float3x3 TBN = transpose(float3x3(T, B, N));
 	
 	//T = TBN[0];
 	//B = TBN[1];
@@ -82,21 +82,21 @@ vertex VertexOut normalMappingVS(VertexIn in [[stage_in]], constant UniformVS& i
 	float3 L = -normalize(inUniform.lightDir);
 	//float3 L = normalize(inUniform.lightDir);
 	
-	//out.L = TBN * L;
-	out.L.x = dot(L, T);
-	out.L.y = dot(L, B);
-	out.L.z = dot(L, N);
+	out.L = TBN * L;
+	//out.L.x = dot(L, T);
+	//out.L.y = dot(L, B);
+	//out.L.z = dot(L, N);
 	
 	//out.N = N;
 	
 	float3 E = inUniform.cameraPos - in.position;
 	
-	//E = normalize(E);
+	E = normalize(E);
 	
-	//out.E = TBN * E;
-	out.E.x = dot(E, T);
-	out.E.y = dot(E, B);
-	out.E.z = dot(E, N);
+	out.E = TBN * E;
+	//out.E.x = dot(E, T);
+	//out.E.y = dot(E, B);
+	//out.E.z = dot(E, N);
 	
 	//out.N = N;
 	//out.L = L;
@@ -126,6 +126,9 @@ fragment float4 normalMappingFS(VertexOut in[[stage_in]], texture2d<float> tex [
 	
 	//normal = normalize(normal);
 	
+	//normal.r = 0.0;
+	//normal.g = 0.0;
+	
 	//return float4(normal, 1.0);
 	
 	float3 L = normalize(in.L);
@@ -143,10 +146,17 @@ fragment float4 normalMappingFS(VertexOut in[[stage_in]], texture2d<float> tex [
 	
 	float3 H = normalize(L + E);	// ハーフベクトル.
 	
-	//float reflection = max(0.0, dot(N, H));
-	float reflection = saturate(dot(N, H));
+	//return float4(H, 1.0);
+	
+	float reflection = max(0.0, dot(N, H));
+	//float reflection = saturate(dot(N, H));
+	
+	//return float4(0.0, 0.0, reflection, 1.0);
+	
 	float specular = pow(reflection, in.specularPower);
 	float4 specularColor = float4(in.specularColor, 1.0) * specular;
+	
+	//return specularColor;
 	
 	//specularColor = float4(0.0, 0.0, 0.0, 1.0);
 	
