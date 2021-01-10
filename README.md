@@ -4,8 +4,8 @@ mtlppというMetalのC++ラッパーを使用したチュートリアル。
 [mtlpp C++ Metal wrapper](https://github.com/naleksiev/mtlpp)
 
 
-macOS : 10.15.4  
-Xcode : 11.4.1  
+macOS : 11.1  
+Xcode : 12.3  
 
 左手系
 
